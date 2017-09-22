@@ -16,15 +16,15 @@
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 /** These settings are automatically used on your OpenShift Gear*/
-if (getenv('OPENSHIFT_APP_NAME') != "") {
+if (getenv('OPENSHIFT_BUILD_NAME') != "") {
 	/** The name of the database for WordPress */
-	define('DB_NAME', getenv('OPENSHIFT_APP_NAME'));
+	define('DB_NAME', getenv('OPENSHIFT_MYSQL_DB_NAME'));
 	/** MySQL database username */
 	define('DB_USER', getenv('OPENSHIFT_MYSQL_DB_USERNAME'));
 	/** MySQL database password */
 	define('DB_PASSWORD', getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
 	/** MySQL hostname */
-	define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST') . ':' . getenv('OPENSHIFT_MYSQL_DB_PORT'));
+	define('DB_HOST', getenv('OPENSHIFT_MYSQL_DB_HOST'));
 /** These settings can be configured for your local development environment
 	and will not affect your OpenShift configuration */
 } else {
